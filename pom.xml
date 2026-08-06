@@ -500,21 +500,42 @@
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.7.3</version>
+            <version>${jsoup.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.owasp.esapi.contrib/esapi-spring-authenticator -->
         <!-- <dependency>
             <groupId>org.owasp.esapi.contrib</groupId>
             <artifactId>esapi-spring-authenticator</artifactId>
-            <version>1.0.1</version>
+            <version>${esapi-spring-authenticator.version}</version>
         </dependency> -->
         <!-- https://mvnrepository.com/artifact/org.owasp.esapi.contrib/esapi-spring-encryptedproperties -->
         <dependency>
             <groupId>org.owasp.esapi.contrib</groupId>
             <artifactId>esapi-spring-encryptedproperties</artifactId>
-            <version>1.0.0</version>
+            <version>${esapi-spring-encryptedproperties.version}</version>
         </dependency>
                         
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.owasp.esapi.contrib</groupId>
+                <artifactId>esapi-spring-authenticator</artifactId>
+                <version>${esapi-spring-authenticator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.owasp.esapi.contrib</groupId>
+                <artifactId>esapi-spring-encryptedproperties</artifactId>
+                <version>${esapi-spring-encryptedproperties.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
 </project>

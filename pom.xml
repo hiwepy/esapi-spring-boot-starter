@@ -311,7 +311,7 @@
                 <additionalparam>-Xdoclint:none</additionalparam>
                 <commons-io.version>2.22.0</commons-io.version>
                 <esapi-spring-encryptedproperties.version>1.0.0</esapi-spring-encryptedproperties.version>
-                <jsoup.version>1.22.2</jsoup.version>
+                <jsoup.version>1.23.1</jsoup.version>
                 <slf4j.version>2.0.18</slf4j.version>
             </properties>
         </profile>

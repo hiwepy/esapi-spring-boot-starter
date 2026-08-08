@@ -14,14 +14,29 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
+/**
+ * Spring Boot auto-configuration for the OWASP ESAPI security library.
+ * <p>Activates when {@link ESAPI} is on the classpath and
+ * {@code spring.esapi.enabled=true}, registering an encrypted property placeholder
+ * configurer so that ESAPI-encrypted properties can be resolved during application
+ * bootstrap.</p>
+ *
+ * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @since 1.0.0
+ */
 @Configuration
 @ConditionalOnClass(ESAPI.class)
 @ConditionalOnProperty(prefix = EsapiProperties.PREFIX, value = "enabled", havingValue = "true")
 @EnableConfigurationProperties(EsapiProperties.class)
 public class EsapiAutoConfiguration implements ApplicationContextAware {
-	
+
 	private ApplicationContext applicationContext;
-	 
+
+	/**
+	 * Creates a property placeholder configurer backed by ESAPI encrypted properties,
+	 * loading values from the classpath {@code application.properties} resource.
+	 * @return the encrypted property placeholder configurer bean
+	 */
     @Bean
 	public PropertyPlaceholderConfigurer propertyPlaceholderConfigurer(){
     	EncryptedPropertyPlaceholderConfigurer placeholderConfigurer = new EncryptedPropertyPlaceholderConfigurer();
@@ -90,11 +105,20 @@ public class EsapiAutoConfiguration implements ApplicationContextAware {
         return filterRegistrationBean;
     }*/
 	
+	/**
+	 * Sets the application context that this configuration runs within.
+	 * @param applicationContext the running application context
+	 * @throws BeansException in case of context access errors
+	 */
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}
 
+	/**
+	 * Returns the application context made available to this configuration.
+	 * @return the application context
+	 */
 	public ApplicationContext getApplicationContext() {
 		return applicationContext;
 	}

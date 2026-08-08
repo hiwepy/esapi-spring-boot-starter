@@ -16,21 +16,35 @@
 package org.owasp.esapi.spring.boot.csrf;
 
 /**
- * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
+ * Configuration options for the OWASP CSRFGuard JavaScript servlet that serves the
+ * dynamic {@code csrfguard.js} script injected into pages for CSRF protection.
+ *
+ * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @since 1.0.0
  */
 public class CsrfguardJavascriptServletProperties {
 
+	/** URL pattern that the CSRFGuard JavaScript servlet is mapped to. */
 	private String pattern = "/csrfguard.js";
+	/** HTTP cache-control header value returned by the JavaScript servlet. */
 	private String cacheControl = "private, maxage=28800";
+	/** Whether to enforce strict domain matching when validating the request origin. */
 	private boolean domainStrict = true;
+	/** Whether to inject CSRF tokens into HTML attributes. */
 	private boolean injectIntoAttributes = true;
+	/** Whether to inject CSRF tokens into HTTP GET forms. */
 	private boolean injectGetForms = true;
+	/** Whether to inject CSRF tokens into form attributes. */
 	private boolean injectFormAttributes = true;
+	/** Whether to inject CSRF tokens directly into forms. */
 	private boolean injectIntoForms = true;
+	/** Regular expression used to validate the HTTP referer header. */
 	private String refererPattern = ".*";
+	/** Whether the referer must match the serving domain. */
 	private boolean refererMatchDomain = true;
+	/** Optional alternate source file for the CSRFGuard JavaScript. */
 	private String sourceFile = null;
+	/** Value of the {@code X-Requested-With} header expected for AJAX requests. */
 	private String XRequestedWith = "OWASP CSRFGuard Project";
 
 	public String getPattern() {

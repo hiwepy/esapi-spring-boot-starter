@@ -18,10 +18,18 @@ package org.owasp.esapi.spring.boot;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 
+/**
+ * Configuration properties for the OWASP ESAPI integration, bound under the
+ * {@value #PREFIX} prefix.
+ *
+ * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @since 1.0.0
+ */
 @ConfigurationProperties(EsapiProperties.PREFIX)
 public class EsapiProperties {
 
+	/** Configuration property prefix for ESAPI options. */
 	public static final String PREFIX = "spring.esapi";
-  
-	
+
+
 }

@@ -26,43 +26,74 @@ import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
+ * Configuration properties for OWASP CSRFGuard, mirroring the properties consumed by
+ * the underlying CSRFGuard runtime and convertible to a {@link Properties} instance
+ * via {@link #toProperties()}.
+ *
+ * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @since 1.0.0
  */
 public class CsrfguardProperties {
 
+	/** Property key prefix used for CSRFGuard action entries. */
 	private final static String ACTION_PREFIX = "org.owasp.csrfguard.action.";
 
+	/** Property key prefix used for protected page entries. */
 	private final static String PROTECTED_PAGE_PREFIX = "org.owasp.csrfguard.protected.";
 
+	/** Property key prefix used for unprotected page entries. */
 	private final static String UNPROTECTED_PAGE_PREFIX = "org.owasp.csrfguard.unprotected.";
 
+	/**
+	 * Supported CSRFGuard logger implementations.
+	 */
 	public enum LoggerType {
 
-		CONSOLE("org.owasp.csrfguard.log.ConsoleLogger"), 
+		/** Logger that writes to the console. */
+		CONSOLE("org.owasp.csrfguard.log.ConsoleLogger"),
+		/** Logger that delegates to the Java logging API. */
 		JAVA("org.owasp.csrfguard.log.JavaLogger");
 
 		private final String implClassName;
 
+		/**
+		 * Creates a logger type bound to the given implementation class name.
+		 * @param implClassName the fully qualified logger implementation class name
+		 */
 		LoggerType(String implClassName) {
 			this.implClassName = implClassName;
 		}
 
+		/**
+		 * Returns the fully qualified implementation class name of this logger.
+		 * @return the logger implementation class name
+		 */
 		public String className() {
 			return implClassName;
 		}
 
+		/**
+		 * Compares this logger type to another by ordinal.
+		 * @param loggerType the logger type to compare with
+		 * @return {@code true} if both logger types have the same ordinal
+		 */
 		public boolean equals(LoggerType loggerType) {
 			return this.compareTo(loggerType) == 0;
 		}
 
 	}
 
+	/** Whether CSRFGuard protection is enabled. */
 	private boolean enabled = false;
+	/** Logger implementation used by CSRFGuard. */
 	private LoggerType logger = LoggerType.CONSOLE;
+	/** Name of the CSRF token request parameter. */
 	private String tokenName = "OWASP_CSRFGUARD";
+	/** Length of the generated CSRF token. */
 	private int tokenLength = 32;
+	/** Whether the token is rotated on each request. */
 	private boolean rotateEnabled = false;
+	/** Whether per-page token validation is enabled. */
 	private boolean tokenPerPageEnabled = false;
 	/**
 	 * If csrf guard filter should check even if there is no session for the user
@@ -72,29 +103,43 @@ public class CsrfguardProperties {
 	 */
 	private boolean validationWhenNoSessionExists = true;
 
+	/** Whether per-page tokens are pre-created. */
 	private boolean tokenPerPagePrecreateEnabled = false;
+	/** Whether to print the effective CSRFGuard configuration on startup. */
 	private boolean printConfig = false;
+	/** Pseudo-random number generation algorithm used to generate tokens. */
 	private String prng = "SHA1PRNG";
+	/** Provider of the pseudo-random number generator. */
 	private String prngProvider = "SUN";
 
+	/** Landing page shown when a new token is generated. */
 	private String newTokenLandingPage;
 
+	/** Whether to use the new token landing page. */
 	private boolean useNewTokenLandingPage = false;
 
+	/** Whether AJAX token handling is enabled. */
 	private boolean ajaxEnabled = false;
 
+	/** Whether page-level protection is enabled. */
 	private boolean protectEnabled = false;
 
+	/** Session attribute key under which the CSRF token is stored. */
 	private String sessionKey = "OWASP_CSRFGUARD_KEY";
 
+	/** Map of CSRFGuard action names to their implementation classes. */
 	private Map<String, String> actions = new HashMap<String, String>();
 
+	/** Map of protected page patterns to their handling configuration. */
 	private Map<String, String> protectedPages = new HashMap<String, String>();
 
+	/** Map of unprotected page patterns to their handling configuration. */
 	private Map<String, String> unprotectedPages = new HashMap<String, String>();
 
+	/** Set of HTTP methods that are CSRF-protected. */
 	private Set<String> protectedMethods = new HashSet<String>();
 
+	/** Set of HTTP methods that are excluded from CSRF protection. */
 	private Set<String> unprotectedMethods = new HashSet<String>();
 
 	public boolean isEnabled() {
@@ -265,6 +310,12 @@ public class CsrfguardProperties {
 		this.unprotectedMethods = unprotectedMethods;
 	}
 
+	/**
+	 * Flattens these configuration options into a {@link Properties} instance using the
+	 * property key names expected by the OWASP CSRFGuard runtime, including nested
+	 * action, protected-page and unprotected-page entries.
+	 * @return a properties object suitable for initialising CSRFGuard
+	 */
 	public Properties toProperties() {
 
 		Properties properties = new Properties();

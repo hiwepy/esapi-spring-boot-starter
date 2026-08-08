@@ -25,19 +25,39 @@ import org.owasp.csrfguard.CsrfGuard;
 import org.owasp.csrfguard.http.InterceptRedirectResponse;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.Filter;
 
-/**                
- * 拷贝 org.owasp.csrfguard.CsrfGuardFilter
- * @author [@Loong Wan](https://github.com/loong10k)
+/**
+ * CSRF guard filter adapted from {@code org.owasp.csrfguard.CsrfGuardFilter} and
+ * integrated with the Spring Security filter chain by extending
+ * {@link org.springframework.boot.autoconfigure.security.SecurityProperties.Filter}.
+ *
+ * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @since 1.0.0
  */
 public class CsrfGuardFilter extends Filter {
-	
+
+	/**
+	 * Allows access when CSRFGuard is disabled (short-circuit behaviour).
+	 * @param request the servlet request
+	 * @param response the servlet response
+	 * @param mappedValue the filter-mapped value, if any
+	 * @return {@code true} if access is allowed because CSRFGuard is disabled
+	 * @throws Exception if an error occurs while inspecting CSRFGuard state
+	 */
 	@Override
 	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
 			throws Exception {
 		//maybe the short circuit to disable is set
 		return !CsrfGuard.getInstance().isEnabled();
-	}  
+	}
 
+	/**
+	 * Handles denied access by validating the CSRF token of the current HTTP request
+	 * and refreshing tokens when necessary.
+	 * @param request the servlet request
+	 * @param response the servlet response
+	 * @return {@code true} to allow the request to proceed, {@code false} to block it
+	 * @throws Exception if an error occurs while validating the request
+	 */
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
 		

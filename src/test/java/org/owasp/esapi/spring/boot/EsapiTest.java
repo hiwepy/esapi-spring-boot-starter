@@ -17,7 +17,7 @@ package org.owasp.esapi.spring.boot;
 
 /**
  * TODO
- * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
+ * @author [@Loong Wan](https://github.com/loong10k)
  */
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import org.owasp.esapi.codecs.MySQLCodec;
 
 /**
  * https://blog.csdn.net/frog4/article/details/81876462
- * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
+ * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class EsapiTest {
 	public static void main(String args[]) {

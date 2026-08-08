@@ -27,7 +27,7 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties.Filter
 
 /**                
  * 拷贝 org.owasp.csrfguard.CsrfGuardFilter
- * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
+ * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class CsrfGuardFilter extends Filter {
 	

@@ -22,9 +22,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
-
 /**
  * Configuration properties for OWASP CSRFGuard, mirroring the properties consumed by
  * the underlying CSRFGuard runtime and convertible to a {@link Properties} instance
@@ -329,37 +326,33 @@ public class CsrfguardProperties {
 		properties.put("org.owasp.csrfguard.TokenPerPagePrecreate", tokenPerPagePrecreateEnabled);
 		properties.put("org.owasp.csrfguard.PRNG", prng);
 		properties.put("org.owasp.csrfguard.PRNG.Provider", prngProvider);
-		properties.put("org.owasp.csrfguard.NewTokenLandingPage", newTokenLandingPage);
+		if (newTokenLandingPage != null) {
+			properties.put("org.owasp.csrfguard.NewTokenLandingPage", newTokenLandingPage);
+		}
 		properties.put("org.owasp.csrfguard.Config.Print", printConfig);
 		properties.put("org.owasp.csrfguard.Enabled", enabled);
 		properties.put("org.owasp.csrfguard.UseNewTokenLandingPage", useNewTokenLandingPage);
 		properties.put("org.owasp.csrfguard.SessionKey", sessionKey);
 		properties.put("org.owasp.csrfguard.Ajax", ajaxEnabled);
 		properties.put("org.owasp.csrfguard.Protect", protectEnabled);
-		properties.put("org.owasp.csrfguard.ProtectedMethods", StringUtils.join(protectedMethods, ","));
-		properties.put("org.owasp.csrfguard.UnprotectedMethods", StringUtils.join(unprotectedMethods, ","));
+		properties.put("org.owasp.csrfguard.ProtectedMethods", String.join(",", protectedMethods));
+		properties.put("org.owasp.csrfguard.UnprotectedMethods", String.join(",", unprotectedMethods));
 		
-		if(MapUtils.isNotEmpty(actions)) {
-			Iterator<String> ite = actions.keySet().iterator();
-			while (ite.hasNext()) {
-				String key = ite.next();
-				properties.put(ACTION_PREFIX + key, actions.get(key));
+		if (!actions.isEmpty()) {
+			for (Map.Entry<String, String> entry : actions.entrySet()) {
+				properties.put(ACTION_PREFIX + entry.getKey(), entry.getValue());
 			}
 		}
 
-		if(MapUtils.isNotEmpty(protectedPages)) {
-			Iterator<String> ite = protectedPages.keySet().iterator();
-			while (ite.hasNext()) {
-				String key = ite.next();
-				properties.put(PROTECTED_PAGE_PREFIX + key, protectedPages.get(key));
+		if (!protectedPages.isEmpty()) {
+			for (Map.Entry<String, String> entry : protectedPages.entrySet()) {
+				properties.put(PROTECTED_PAGE_PREFIX + entry.getKey(), entry.getValue());
 			}
 		}
 		
-		if(MapUtils.isNotEmpty(unprotectedPages)) {
-			Iterator<String> ite = unprotectedPages.keySet().iterator();
-			while (ite.hasNext()) {
-				String key = ite.next();
-				properties.put(UNPROTECTED_PAGE_PREFIX + key, unprotectedPages.get(key));
+		if (!unprotectedPages.isEmpty()) {
+			for (Map.Entry<String, String> entry : unprotectedPages.entrySet()) {
+				properties.put(UNPROTECTED_PAGE_PREFIX + entry.getKey(), entry.getValue());
 			}
 		}
 

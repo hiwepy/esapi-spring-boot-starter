@@ -21,7 +21,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
  * configurer so that ESAPI-encrypted properties can be resolved during application
  * bootstrap.</p>
  *
- * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 @Configuration

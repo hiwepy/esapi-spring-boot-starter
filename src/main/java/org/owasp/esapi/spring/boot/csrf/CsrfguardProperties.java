@@ -27,7 +27,7 @@ import java.util.Set;
  * the underlying CSRFGuard runtime and convertible to a {@link Properties} instance
  * via {@link #toProperties()}.
  *
- * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 public class CsrfguardProperties {

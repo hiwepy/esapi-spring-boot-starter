@@ -29,7 +29,7 @@ import jakarta.servlet.ServletResponse;
  * When CSRFGuard is on the classpath this filter delegates to it; otherwise
  * it acts as a pass-through.
  *
- * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 public class CsrfGuardFilter implements Filter {

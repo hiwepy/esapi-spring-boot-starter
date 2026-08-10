@@ -19,7 +19,7 @@ package org.owasp.esapi.spring.boot.csrf;
  * Configuration options for the OWASP CSRFGuard JavaScript servlet that serves the
  * dynamic {@code csrfguard.js} script injected into pages for CSRF protection.
  *
- * @author <a href="https://github.com/loong10k">@Loong Wan</a>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 public class CsrfguardJavascriptServletProperties {

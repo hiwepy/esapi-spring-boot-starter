@@ -47,90 +47,112 @@ public class CsrfguardJavascriptServletProperties {
 	/** Value of the {@code X-Requested-With} header expected for AJAX requests. */
 	private String XRequestedWith = "OWASP CSRFGuard Project";
 
+	/** @return return the pattern. */
 	public String getPattern() {
 		return pattern;
 	}
 
+	/** @param pattern set the pattern. */
 	public void setPattern(String pattern) {
 		this.pattern = pattern;
 	}
 
+	/** @return return the cache control. */
 	public String getCacheControl() {
 		return cacheControl;
 	}
 
+	/** @param cacheControl set the cache control. */
 	public void setCacheControl(String cacheControl) {
 		this.cacheControl = cacheControl;
 	}
 
+	/** @return return whether domain strict is enabled. */
 	public boolean isDomainStrict() {
 		return domainStrict;
 	}
 
+	/** @param domainStrict set the domain strict. */
 	public void setDomainStrict(boolean domainStrict) {
 		this.domainStrict = domainStrict;
 	}
 
+	/** @return return whether inject into attributes is enabled. */
 	public boolean isInjectIntoAttributes() {
 		return injectIntoAttributes;
 	}
 
+	/** @param injectIntoAttributes set the inject into attributes. */
 	public void setInjectIntoAttributes(boolean injectIntoAttributes) {
 		this.injectIntoAttributes = injectIntoAttributes;
 	}
 
+	/** @return return whether inject get forms is enabled. */
 	public boolean isInjectGetForms() {
 		return injectGetForms;
 	}
 
+	/** @param injectGetForms set the inject get forms. */
 	public void setInjectGetForms(boolean injectGetForms) {
 		this.injectGetForms = injectGetForms;
 	}
 
+	/** @return return whether inject form attributes is enabled. */
 	public boolean isInjectFormAttributes() {
 		return injectFormAttributes;
 	}
 
+	/** @param injectFormAttributes set the inject form attributes. */
 	public void setInjectFormAttributes(boolean injectFormAttributes) {
 		this.injectFormAttributes = injectFormAttributes;
 	}
 
+	/** @return return whether inject into forms is enabled. */
 	public boolean isInjectIntoForms() {
 		return injectIntoForms;
 	}
 
+	/** @param injectIntoForms set the inject into forms. */
 	public void setInjectIntoForms(boolean injectIntoForms) {
 		this.injectIntoForms = injectIntoForms;
 	}
 
+	/** @return return the referer pattern. */
 	public String getRefererPattern() {
 		return refererPattern;
 	}
 
+	/** @param refererPattern set the referer pattern. */
 	public void setRefererPattern(String refererPattern) {
 		this.refererPattern = refererPattern;
 	}
 
+	/** @return return whether referer match domain is enabled. */
 	public boolean isRefererMatchDomain() {
 		return refererMatchDomain;
 	}
 
+	/** @param refererMatchDomain set the referer match domain. */
 	public void setRefererMatchDomain(boolean refererMatchDomain) {
 		this.refererMatchDomain = refererMatchDomain;
 	}
 
+	/** @return return the source file. */
 	public String getSourceFile() {
 		return sourceFile;
 	}
 
+	/** @param sourceFile set the source file. */
 	public void setSourceFile(String sourceFile) {
 		this.sourceFile = sourceFile;
 	}
 
+	/** @return return the x requested with. */
 	public String getXRequestedWith() {
 		return XRequestedWith;
 	}
 
+	/** @param xRequestedWith set the x requested with. */
 	public void setXRequestedWith(String xRequestedWith) {
 		XRequestedWith = xRequestedWith;
 	}

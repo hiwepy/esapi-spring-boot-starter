@@ -28,6 +28,11 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @ConditionalOnClass(ESAPI.class)
 @ConditionalOnProperty(prefix = EsapiProperties.PREFIX, value = "enabled", havingValue = "true")
 @EnableConfigurationProperties(EsapiProperties.class)
+/**
+ * <p>Auto-configuration for EsapiAutoConfiguration.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class EsapiAutoConfiguration implements ApplicationContextAware {
 
 	private ApplicationContext applicationContext;
@@ -38,6 +43,10 @@ public class EsapiAutoConfiguration implements ApplicationContextAware {
 	 * @return the encrypted property placeholder configurer bean
 	 */
     @Bean
+	/**
+	 * <p>Property placeholder configurer.</p>
+	 * @return the result
+	 */
 	public PropertyPlaceholderConfigurer propertyPlaceholderConfigurer(){
     	EncryptedPropertyPlaceholderConfigurer placeholderConfigurer = new EncryptedPropertyPlaceholderConfigurer();
     	PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -48,6 +57,11 @@ public class EsapiAutoConfiguration implements ApplicationContextAware {
 	/*
 	@Bean
     @ConditionalOnMissingBean
+	/**
+	 * <p>Java script servlet.</p>
+	 * @param properties
+	 * @return the result
+	 */
 	public ServletRegistrationBean<JavaScriptServlet> javaScriptServlet(EsapiProperties properties) throws Exception {
 
 		 ArrayList list = new ArrayList();
@@ -83,6 +97,10 @@ public class EsapiAutoConfiguration implements ApplicationContextAware {
 	
 	@Bean
 	@ConditionalOnProperty(prefix = "shiro", value = "session-creation-enabled", havingValue = "true")
+	/**
+	 * <p>Csrf guard http session listener.</p>
+	 * @return the result
+	 */
 	protected ServletListenerRegistrationBean<CsrfGuardHttpSessionListener> csrfGuardHttpSessionListener()
 			throws Exception {
 		
@@ -96,6 +114,10 @@ public class EsapiAutoConfiguration implements ApplicationContextAware {
 	
 	@Bean
     @ConditionalOnMissingBean
+    /**
+     * <p>Csrf guard filter.</p>
+     * @return the result
+     */
     protected FilterRegistrationBean<CsrfGuardFilter> csrfGuardFilter() throws Exception {
 
         FilterRegistrationBean<CsrfGuardFilter> filterRegistrationBean = new FilterRegistrationBean<CsrfGuardFilter>();
@@ -111,6 +133,7 @@ public class EsapiAutoConfiguration implements ApplicationContextAware {
 	 * @throws BeansException in case of context access errors
 	 */
 	@Override
+	/** @param applicationContext set the application context. */
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}

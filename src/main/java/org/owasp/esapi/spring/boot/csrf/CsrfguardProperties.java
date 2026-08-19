@@ -139,170 +139,212 @@ public class CsrfguardProperties {
 	/** Set of HTTP methods that are excluded from CSRF protection. */
 	private Set<String> unprotectedMethods = new HashSet<String>();
 
+	/** @return return whether enabled is enabled. */
 	public boolean isEnabled() {
 		return enabled;
 	}
 
+	/** @param enabled set the enabled. */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
+	/** @return return the logger. */
 	public LoggerType getLogger() {
 		return logger;
 	}
 
+	/** @param logger set the logger. */
 	public void setLogger(LoggerType logger) {
 		this.logger = logger;
 	}
 
+	/** @return return the token name. */
 	public String getTokenName() {
 		return tokenName;
 	}
 
+	/** @param tokenName set the token name. */
 	public void setTokenName(String tokenName) {
 		this.tokenName = tokenName;
 	}
 
+	/** @return return the token length. */
 	public int getTokenLength() {
 		return tokenLength;
 	}
 
+	/** @param tokenLength set the token length. */
 	public void setTokenLength(int tokenLength) {
 		this.tokenLength = tokenLength;
 	}
 
+	/** @return return whether rotate enabled is enabled. */
 	public boolean isRotateEnabled() {
 		return rotateEnabled;
 	}
 
+	/** @param rotateEnabled set the rotate enabled. */
 	public void setRotateEnabled(boolean rotateEnabled) {
 		this.rotateEnabled = rotateEnabled;
 	}
 
+	/** @return return whether token per page enabled is enabled. */
 	public boolean isTokenPerPageEnabled() {
 		return tokenPerPageEnabled;
 	}
 
+	/** @param tokenPerPageEnabled set the token per page enabled. */
 	public void setTokenPerPageEnabled(boolean tokenPerPageEnabled) {
 		this.tokenPerPageEnabled = tokenPerPageEnabled;
 	}
 
+	/** @return return whether validation when no session exists is enabled. */
 	public boolean isValidationWhenNoSessionExists() {
 		return validationWhenNoSessionExists;
 	}
 
+	/** @param validationWhenNoSessionExists set the validation when no session exists. */
 	public void setValidationWhenNoSessionExists(boolean validationWhenNoSessionExists) {
 		this.validationWhenNoSessionExists = validationWhenNoSessionExists;
 	}
 
+	/** @return return whether token per page precreate enabled is enabled. */
 	public boolean isTokenPerPagePrecreateEnabled() {
 		return tokenPerPagePrecreateEnabled;
 	}
 
+	/** @param tokenPerPagePrecreateEnabled set the token per page precreate enabled. */
 	public void setTokenPerPagePrecreateEnabled(boolean tokenPerPagePrecreateEnabled) {
 		this.tokenPerPagePrecreateEnabled = tokenPerPagePrecreateEnabled;
 	}
 
+	/** @return return whether print config is enabled. */
 	public boolean isPrintConfig() {
 		return printConfig;
 	}
 
+	/** @param printConfig set the print config. */
 	public void setPrintConfig(boolean printConfig) {
 		this.printConfig = printConfig;
 	}
 
+	/** @return return the prng. */
 	public String getPrng() {
 		return prng;
 	}
 
+	/** @param prng set the prng. */
 	public void setPrng(String prng) {
 		this.prng = prng;
 	}
 
+	/** @return return the prng provider. */
 	public String getPrngProvider() {
 		return prngProvider;
 	}
 
+	/** @param prngProvider set the prng provider. */
 	public void setPrngProvider(String prngProvider) {
 		this.prngProvider = prngProvider;
 	}
 
+	/** @return return the new token landing page. */
 	public String getNewTokenLandingPage() {
 		return newTokenLandingPage;
 	}
 
+	/** @param newTokenLandingPage set the new token landing page. */
 	public void setNewTokenLandingPage(String newTokenLandingPage) {
 		this.newTokenLandingPage = newTokenLandingPage;
 	}
 
+	/** @return return whether use new token landing page is enabled. */
 	public boolean isUseNewTokenLandingPage() {
 		return useNewTokenLandingPage;
 	}
 
+	/** @param useNewTokenLandingPage set the use new token landing page. */
 	public void setUseNewTokenLandingPage(boolean useNewTokenLandingPage) {
 		this.useNewTokenLandingPage = useNewTokenLandingPage;
 	}
 
+	/** @return return whether ajax enabled is enabled. */
 	public boolean isAjaxEnabled() {
 		return ajaxEnabled;
 	}
 
+	/** @param ajaxEnabled set the ajax enabled. */
 	public void setAjaxEnabled(boolean ajaxEnabled) {
 		this.ajaxEnabled = ajaxEnabled;
 	}
 
+	/** @return return whether protect enabled is enabled. */
 	public boolean isProtectEnabled() {
 		return protectEnabled;
 	}
 
+	/** @param protectEnabled set the protect enabled. */
 	public void setProtectEnabled(boolean protectEnabled) {
 		this.protectEnabled = protectEnabled;
 	}
 
+	/** @return return the session key. */
 	public String getSessionKey() {
 		return sessionKey;
 	}
 
+	/** @param sessionKey set the session key. */
 	public void setSessionKey(String sessionKey) {
 		this.sessionKey = sessionKey;
 	}
 
+	/** @return return the actions. */
 	public Map<String, String> getActions() {
 		return actions;
 	}
 
+	/** @param actions set the actions. */
 	public void setActions(Map<String, String> actions) {
 		this.actions = actions;
 	}
 
+	/** @return return the protected pages. */
 	public Map<String, String> getProtectedPages() {
 		return protectedPages;
 	}
 
+	/** @param protectedPages set the protected pages. */
 	public void setProtectedPages(Map<String, String> protectedPages) {
 		this.protectedPages = protectedPages;
 	}
 
+	/** @return return the unprotected pages. */
 	public Map<String, String> getUnprotectedPages() {
 		return unprotectedPages;
 	}
 
+	/** @param unprotectedPages set the unprotected pages. */
 	public void setUnprotectedPages(Map<String, String> unprotectedPages) {
 		this.unprotectedPages = unprotectedPages;
 	}
 
+	/** @return return the protected methods. */
 	public Set<String> getProtectedMethods() {
 		return protectedMethods;
 	}
 
+	/** @param protectedMethods set the protected methods. */
 	public void setProtectedMethods(Set<String> protectedMethods) {
 		this.protectedMethods = protectedMethods;
 	}
 
+	/** @return return the unprotected methods. */
 	public Set<String> getUnprotectedMethods() {
 		return unprotectedMethods;
 	}
 
+	/** @param unprotectedMethods set the unprotected methods. */
 	public void setUnprotectedMethods(Set<String> unprotectedMethods) {
 		this.unprotectedMethods = unprotectedMethods;
 	}

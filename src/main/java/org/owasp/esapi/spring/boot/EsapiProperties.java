@@ -26,6 +26,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 1.0.0
  */
 @ConfigurationProperties(EsapiProperties.PREFIX)
+/**
+ * <p>Auto-configuration for EsapiProperties.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class EsapiProperties {
 
 	/** Configuration property prefix for ESAPI options. */

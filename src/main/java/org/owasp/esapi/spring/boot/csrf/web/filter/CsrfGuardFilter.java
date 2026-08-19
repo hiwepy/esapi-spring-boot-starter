@@ -35,17 +35,30 @@ import jakarta.servlet.ServletResponse;
 public class CsrfGuardFilter implements Filter {
 
 	@Override
+	/**
+	 * <p>Init.</p>
+	 * @param filterConfig
+	 */
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// no-op
 	}
 
 	@Override
+	/**
+	 * <p>Do filter.</p>
+	 * @param request
+	 * @param response
+	 * @param chain
+	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		chain.doFilter(request, response);
 	}
 
 	@Override
+	/**
+	 * <p>Destroy.</p>
+	 */
 	public void destroy() {
 		// no-op
 	}
